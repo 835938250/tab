@@ -1,7 +1,71 @@
+<!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-<h1>�ϴ���ȥ����</h1>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<span id="shi">
+			
+		</span>
+		<script type="text/javascript">
+		var jian=document.getElementById("shi");
+			var tam= new Date();
+			var a=tam.getFullYear();
+			var b=tam.getMonth();
+			var c=tam.getDate();
+			var d=tam.getDay();
+			  switch(d){
+			  	case 0:
+			  	d="星期日";
+			  	break;
+			  	case 1:
+			  	d="星期一";
+			  	break;
+				case 2:
+			  	d="星期二";
+			  	break;
+				case 3:
+			  	d="星期三";
+			  	break;
+				case 4:
+			  	d="星期四";
+			  	break;
+				case 5:
+			  	d="星期五";
+			  	break;
+				case 6:
+			  	d="星期六";
+			  	break;
+			  }
+			var e=tam.getHours();
+			if(e>12){
+				e=e-12;
+				document.write("PM");
+			}
+			if(e<10){
+				e="0"+e;
+				document.write("AM");
+			}
+			var f=tam.getMinutes();
+			 if(f<10){
+			 	f="0"+f;
+			 }
+			var s=tam.getSeconds();
+			jian.innerHTML=("现在时刻:"+"&nbsp"+a+"年"+(b+1)+"月"+c+"日"+"&nbsp"+e+":"+f+":"+s+"&nbsp"+d);
+			function dt(){
+				s++;
+				if(s==60){
+					f=f+1;
+					s=0;
+				}
+				if(f==60){
+					e=e+1;
+					f=0;
+				}
+			jian.innerHTML=("现在时刻:"+"&nbsp"+a+"年"+(b+1)+"月"+c+"日"+"&nbsp"+e+":"+f+":"+s+"&nbsp"+d);
+			}
+		    setInterval("dt()",1000);
+		</script>
+	</body>
 </html>
